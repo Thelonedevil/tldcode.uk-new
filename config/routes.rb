@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  get 'mods/potion-mixer' => 'mods#potionmixer'
+
+  get 'mods/nea' => 'mods#nea'
+
   root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
