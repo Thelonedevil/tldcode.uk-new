@@ -1,51 +1,29 @@
-@charset 'utf-8';
+@import '../scss/foundation';
 
-@import 'settings';
-@import 'foundation';
+@include foundation-everything($flex: true);
 
-// If you'd like to include motion-ui, you need to install the motion-ui sass package.
-//
-// @import 'motion-ui/motion-ui';
+a.brand {
+  color: black;
+}
 
-// We include everything by default.  To slim your CSS, remove components you don't use.
+.off-canvas, .off-canvas-wrapper, .off-canvas-wrapper-inner {
+  height: 100%;
+}
 
-@include foundation-global-styles;
-@include foundation-grid;
-@include foundation-typography;
-@include foundation-button;
-@include foundation-forms;
-@include foundation-visibility-classes;
-@include foundation-float-classes;
-@include foundation-accordion;
-@include foundation-accordion-menu;
-@include foundation-badge;
-@include foundation-breadcrumbs;
-@include foundation-button-group;
-@include foundation-callout;
-@include foundation-close-button;
-@include foundation-drilldown-menu;
-@include foundation-dropdown;
-@include foundation-dropdown-menu;
-@include foundation-flex-video;
-@include foundation-label;
-@include foundation-media-object;
-@include foundation-menu;
-@include foundation-off-canvas;
-@include foundation-orbit;
-@include foundation-pagination;
-@include foundation-progress-bar;
-@include foundation-slider;
-@include foundation-sticky;
-@include foundation-reveal;
-@include foundation-switch;
-@include foundation-table;
-@include foundation-tabs;
-@include foundation-thumbnail;
-@include foundation-title-bar;
-@include foundation-tooltip;
-@include foundation-top-bar;
-
-// If you'd like to include motion-ui, you need to install the motion-ui sass package.
-//
-// @include motion-ui-transitions;
-// @include motion-ui-animations;
+ul.vertical > li.seperator > hr {
+  padding: 0;
+  border: none;
+  border-top: medium double #333;
+  color: #333;
+  text-align: center;
+  cursor: default;
+  &:after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -1em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: rgb(230, 230, 230);
+  }
+}

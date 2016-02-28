@@ -1,45 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
 
-  <body>
-  <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
-    <button class="menu-icon" type="button" data-toggle></button>
-    <div class="title-bar-title">Menu</div>
-  </div>
-
-  <div class="top-bar" id="example-menu">
-    <div class="top-bar-left">
-      <ul class="dropdown menu" data-dropdown-menu>
-        <li class="menu-text">The_Lone_Devil Codes UK</li>
+<body>
+<div class="off-canvas-wrapper">
+  <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+    <!-- off-canvas title bar for 'small' screen -->
+    <div class="title-bar">
+      <div class="title-bar-left">
+        <button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
+        <span class="title-bar-title">The Lone Devil Code UK</span>
+      </div>
+    </div>
+    <!-- off-canvas left menu -->
+    <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
+      <ul class="vertical menu" data-accordion-menu>
         <li>
           <a href="#">Minecraft Mods</a>
           <ul class="menu vertical">
             <li><a href="/mods/potion-mixer">Potion Mixer</a></li>
-            <li><a href="/mods/nea">Not Enough Alloys(Not Released Yet)</a></li>
+            <li><a href="/mods/nea">Not Enough Alloys</a></li>
+
           </ul>
         </li>
-        <li><a href="http://mcs.co.uk" target="_blank">Current Employer</a></li>
-        <li><a href="https://entity.itemframe.name" target="_blank">OTBProject</a></li>
-      </ul>
-    </div>
-    <div class="top-bar-right">
-      <ul class="menu">
-        <li><input type="search" placeholder="Search"></li>
-        <li><button type="button" class="button">Search</button></li>
-      </ul>
-    </div>
-  </div>
-    <%= yield %>
+        <li class="seperator">
+          <hr/>
+        </li>
+        <li>
+          <a href="http://mcs.co.uk" target="_blank">Current Employer</a>
+        </li>
+        <li class="seperator">
+          <hr/>
+        </li>
+        <li>
+          <a href="#">Other Coding projects</a>
+          <ul class="menu vertical">
+            <li><a href="https://otbproject.github.io/" target="_blank">OTBProject</a></li>
+            <li><a href="/">This Website</a></li>
 
-  </body>
+          </ul>
+        </li>
+        <li class="seperator">
+          <hr/>
+        </li>
+        <li>
+          <a href="#">Hosted Things</a>
+          <ul class="menu vertical">
+            <li><a href="/hosts/trunkscraft">Trunkscraft</a></li>
+            <li><a href="http://thespriteful.itemframe.name">TheSpriteful</a></li>
+
+          </ul>
+        </li>
+        <li class="seperator">
+          <hr/>
+        </li>
+      </ul>
+    </div>
+
+    <!-- original content goes in this container -->
+    <div class="off-canvas-content" data-off-canvas-content>
+      <%= yield %>
+    </div>
+    <!-- close wrapper, no more content after this -->
+  </div>
+</div>
+</body>
 </html>

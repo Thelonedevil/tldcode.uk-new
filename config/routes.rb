@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'hosts/trunkscraft'
+
   get 'mods/potion-mixer' => 'mods#potionmixer'
 
   get 'mods/nea' => 'mods#nea'
